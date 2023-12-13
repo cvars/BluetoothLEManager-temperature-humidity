@@ -124,7 +124,7 @@ private:
 
         // Extract humidity value (assuming bytes 7 and 8 are the humidity)
         int humidityRaw = (rawData[7] << 8) | rawData[8];
-        float humidity = static_cast<float>(humidityRaw) / 10.0f; // This seems to be correct based on your code
+        float humidity = static_cast<float>(humidityRaw) / 10.0f; // Adjust this divisor based on actual data format
 
         // Print the raw data
         std::wcout << L"Raw Data: ";
@@ -135,7 +135,7 @@ private:
         // Print the temperature and humidity values
         std::wcout << std::endl;
         _setmode(_fileno(stdout), _O_U16TEXT); // Set output mode to UTF-16
-        std::wcout << L"Temperature: " << temperature << L"°C (" << (temperature * 9 / 5 + 32) << L"°F)" << std::endl;
+        std::wcout << L"Temperature: " << temperature << L"Â°C (" << (temperature * 9 / 5 + 32) << L"Â°F)" << std::endl;
         std::wcout << L"Humidity: " << humidity << L"%" << std::endl;
     }
 
